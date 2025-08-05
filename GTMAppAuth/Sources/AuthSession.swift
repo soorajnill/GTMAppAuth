@@ -268,7 +268,7 @@ public final class AuthSession: NSObject, GTMSessionFetcherAuthorizer, NSSecureC
     }
     authorizeRequestControlFlow: if isAuthorizableRequest,
        let accessToken = accessToken,
-       !accessToken.isEmpty {
+       !accessToken.isEmpty, args.error == nil {
       request.setValue(
         "Bearer \(accessToken)",
         forHTTPHeaderField: "Authorization"
